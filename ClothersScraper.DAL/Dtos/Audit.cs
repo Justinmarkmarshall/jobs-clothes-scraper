@@ -7,5 +7,7 @@ namespace ClothersScraper.DAL.Dtos
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
+
+        public int UniqueCount { get; set; }
     }
 }

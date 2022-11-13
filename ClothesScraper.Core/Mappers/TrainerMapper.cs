@@ -52,29 +52,27 @@ namespace ClothesScraper.Core.Mappers
             //var trainerName = body.GetElementsByClassName("product-card__title")[0].InnerHtml;
         }
 
-        public static List<Garment> Map(this List<Trainer> trainers, Dictionary<string, bool> stockCheck)
+        public static List<Garment> Map(this List<Trainer> trainers)
         {
             var garments = new List<Garment>();
 
             foreach (var trainer in trainers)
             {
-                if (stockCheck[trainer.Link])
-                {
-                    var pic = "";
+                var pic = "";
 
-                    if (trainer.Images.Any() && trainer.Images.Count > 1)
-                    {
-                        pic = trainer.Images[1];
-                    }
-                    garments.Add(new Garment()
-                    {
-                        Images = pic,
-                        Price = trainer.SalePrice,
-                        Model = trainer.Model,
-                        Link = trainer.Link,
-                        Date = DateTime.Now,
-                    });
-                }               
+                if (trainer.Images.Any() && trainer.Images.Count > 1)
+                {
+                    pic = trainer.Images[1];
+                }
+                garments.Add(new Garment()
+                {
+                    Images = pic,
+                    Price = trainer.SalePrice,
+                    Model = trainer.Model,
+                    Link = trainer.Link,
+                    Date = DateTime.Now,
+                });
+
             }
 
             return garments;

@@ -33,6 +33,8 @@ namespace ClothesScraper
             var nikeScraper = serviceCollection.GetService<INikeScraper>();
 
             var results = await nikeScraper.GetSaleTrainersResponseFromNike();
+            var clothes = await nikeScraper.GetSaleClothesResponseFromNike();
+            var cotton = await nikeScraper.GetSaleCottonClothesResponseFromNike();
         }
     }
 }

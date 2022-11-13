@@ -30,6 +30,7 @@ namespace ClothersScraper.DAL.Wrappers
                         unique.Add(garment);
                     }
                 }
+                await SaveToDB(new Audit() { Date = DateTime.Now, UniqueCount = unique.Count() });
                 await _context.AddRangeAsync(unique);
                 await _context.SaveChangesAsync();
             }

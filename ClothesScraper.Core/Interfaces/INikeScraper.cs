@@ -10,5 +10,7 @@ namespace ClothesScraper.Core.Interfaces
     public interface INikeScraper
     {
         public Task<List<Trainer>> GetSaleTrainersResponseFromNike(int size = 11);
+        Task<List<Trainer>> GetSaleClothesResponseFromNike();
+        Task<List<Trainer>> GetSaleCottonClothesResponseFromNike();
     }
 }
